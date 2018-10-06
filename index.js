@@ -14,10 +14,12 @@ const server = http.createServer(function(req, res) {
     const mainPath = trimmedPath.split('/')[0];
     if (mainPath === 'hello') {
         res.writeHead(200);
+        res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({message: 'You accessed the best API in the small village, but the best;)'}));
     } else if (mainPath === 'balance') {
         const balance = 2000;
         res.writeHead(200);
+        res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({balance, currency: '$'}));
     } else {
         // notFound
